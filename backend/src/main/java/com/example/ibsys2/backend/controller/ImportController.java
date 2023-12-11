@@ -19,7 +19,7 @@ import com.example.ibsys2.backend.Handler.ImportHandler;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin("http://localhost:3000")
 public class ImportController {
     
     @Autowired
