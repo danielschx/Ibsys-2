@@ -1,5 +1,6 @@
 package com.example.ibsys2.backend.Handler;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ImportHandler {
 
-    public void parseBody(Map<String, Object> body) {
+    public void parseBody(Map<String, Object> body) throws IOException {
         if(body != null) {
             parseForecast((Map<String, Object>) body.get("forecast"));
             parseWarehousestockArticles((List<Map<String, Object>>) ((Map<String, Object>)body.get("warehousestock")).get("articles"));
@@ -21,6 +22,9 @@ public class ImportHandler {
             parseCompletedOrders((List<Map<String, Object>>)((Map<String, Object>)body.get("completeorders")).get("order"));
             parseCycleTimes((Map<String, Object>)body.get("cycletimes"));
             parseResult((Map<String, Object>) body.get("result"));
+        }
+        else {
+            throw new IOException("Body is missing");
         }
     }
 

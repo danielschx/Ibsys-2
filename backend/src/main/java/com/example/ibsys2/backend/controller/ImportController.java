@@ -27,8 +27,13 @@ public class ImportController {
 
     @PostMapping("/import")
     public ResponseEntity parseJson(@RequestBody Map<String, Object> requestBody){
-        System.out.println(requestBody);
-        importHandler.parseBody((Map<String, Object>)requestBody.get("results")); 
-        return new ResponseEntity<>(HttpStatus.OK);
+        try{
+            System.out.println(requestBody);
+            importHandler.parseBody((Map<String, Object>)requestBody.get("results")); 
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch(Exception ex){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }
