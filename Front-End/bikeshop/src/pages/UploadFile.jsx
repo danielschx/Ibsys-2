@@ -42,9 +42,6 @@ function FileUpload() {
       };
       file.content = JSON.parse(xml2json(file.content)).elements[0];
 
-      console.log("file: ", file);
-      console.log("file.content.attributes: ", file.content.attributes);
-
       try {
         const oResults = {
           overview: {
@@ -69,8 +66,6 @@ function FileUpload() {
           cycletimes: [],
           result: {},
         };
-
-        console.log("bis hier");
 
         if (file.content.elements[1].elements) {
           const aWarehouseStock = file.content.elements[1].elements.map(
