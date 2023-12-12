@@ -8,6 +8,7 @@ import {
   TableHead,
   TableCell,
   TableBody,
+  Container,
   Box,
   Typography,
 } from "@mui/material";
@@ -28,7 +29,7 @@ function FileUpload() {
   const [oForecast, fSetForecast] = useState({});
   const [bFileLoaded, fSetFileLoaded] = useState(false);
   const navigate = useNavigate();
-  const fHandeFileChange = (oEvent) => {
+  const fHandleFileChange = (oEvent) => {
     fSetFileToUpload(oEvent.target.files[0]);
   };
   const fSendFile = async () => {
@@ -308,15 +309,56 @@ function FileUpload() {
   return (
     <>
       {!bFileLoaded && (
-        <Box>
-          <Typography marginBottom="5rem"></Typography>
-          <input type="file" accept=".xml" onChange={fHandeFileChange} />
-          {!!oFileToUpload && (
-            <Button variant="contained" onClick={fSendFile}>
-              Datei hochladen
-            </Button>
-          )}
-        </Box>
+        <Container
+          maxWidth="sm"
+          style={{
+            marginTop: "2rem",
+            padding: "2rem",
+            borderRadius: "8px",
+            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            justifyContent="center"
+            textAlign="center"
+          >
+            <Typography variant="h4" gutterBottom>
+              Upload Seite
+            </Typography>
+            <label htmlFor="file-input">
+              <input
+                type="file"
+                accept=".xml"
+                id="file-input"
+                style={{ display: "none" }}
+                onChange={fHandleFileChange}
+              />
+              <Button variant="contained" color="primary" component="span">
+                Datei auswählen
+              </Button>
+            </label>
+            {!!oFileToUpload && (
+              <Typography variant="body2">
+                (Datei ausgewählt: {oFileToUpload.name})
+              </Typography>
+            )}
+            {!!oFileToUpload && (
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={fSendFile}
+                style={{
+                  marginTop: "1rem",
+                }}
+              >
+                Datei hochladen
+              </Button>
+            )}
+          </Box>
+        </Container>
       )}
     </>
   );
