@@ -1,7 +1,7 @@
 package com.example.ibsys2.backend.database;
 
 import com.zaxxer.hikari.HikariDataSource;
-import  com.example.ibsys2.backend.Entity.ProductionProduct;
+import com.example.ibsys2.backend.Entity.ProductionProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
