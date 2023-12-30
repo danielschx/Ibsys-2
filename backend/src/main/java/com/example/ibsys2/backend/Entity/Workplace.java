@@ -31,6 +31,14 @@ public class Workplace {
     public int getDuration() {
         return duration;
     }
+    
+    public void setDuration(int newDuration) {
+        this.duration = newDuration;
+    }
+
+    public void setWaitingDuration(int newWaitingDuration) {
+        this.waitingDuration = newWaitingDuration;
+    }
 
     public ArrayList<WorkplaceProductMerge> getDurationsforeachProductWorkplace() {
         return durationsforeachProductWorkplace;

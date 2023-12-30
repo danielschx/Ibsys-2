@@ -3,15 +3,16 @@ package com.example.ibsys2.backend.Handler;
 import com.example.ibsys2.backend.Entity.ProductionPlanEntity;
 import com.example.ibsys2.backend.controller.ResponseEntity.ProductionItem;
 import com.example.ibsys2.backend.controller.ResponseEntity.ReserveStockProduct;
+import com.example.ibsys2.backend.controller.ResponseEntity.WorkingTime;
 import com.example.ibsys2.backend.controller.ResponseEntity.Calculations;
 import com.example.ibsys2.backend.controller.ResponseEntity.NewOrder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @Component
@@ -113,5 +114,29 @@ public class PlanningHandler {
         }
 
         return orders;
+    }
+
+    public ArrayList<WorkingTime> updateCapacity(ProductionItem[] items) {
+        ArrayList<ProductionItem> productionItems = new ArrayList<>(Arrays.asList(items));
+
+        // Hier kannst du die ArrayList<ProductionItem> weiterverarbeiten
+        // ...
+
+        // Beispiel: Ausgabe der empfangenen Daten
+        for (ProductionItem item : productionItems) {
+            System.out.println("Sequence Number: " + item.getSequenceNumer());
+            System.out.println("Article: " + item.getArticle());
+            System.out.println("Quantity: " + item.getQuantity());
+            System.out.println();
+        }
+
+        System.out.println(("Kapazitätsplanung Berechnung gestartet"));
+        ArrayList<WorkingTime> workingTimes = Calculations
+                .CalculateWorkingtimesByProductionList(productionItems);
+
+        System.out.println("Kapazitätsplanung Berechnung abgeschlossen:");
+        System.out.println("----------------------");
+
+        return workingTimes;
     }
 }

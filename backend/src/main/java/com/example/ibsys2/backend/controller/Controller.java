@@ -19,6 +19,7 @@ import com.example.ibsys2.backend.Handler.PlanningHandler;
 import com.example.ibsys2.backend.controller.ResponseEntity.ForecastResponse;
 import com.example.ibsys2.backend.controller.ResponseEntity.NewOrder;
 import com.example.ibsys2.backend.controller.ResponseEntity.ProductionItem;
+import com.example.ibsys2.backend.controller.ResponseEntity.WorkingTime;
 
 /**
  * RestController für den XML-Import
@@ -74,6 +75,7 @@ public class Controller {
         //     return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         // }
     }
+
     @PostMapping("/orders")
     public ArrayList<NewOrder> orderPlanning(@RequestBody Map<String, Object> requestBody) {
         // try {
@@ -82,5 +84,10 @@ public class Controller {
         //     e.printStackTrace();
         //     return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         // }
+    }
+
+    @PostMapping("/capacity")
+    public ArrayList<WorkingTime> updateCapacity(@RequestBody ProductionItem[] items) {
+        return planningHandler.updateCapacity(items);
     }
 }

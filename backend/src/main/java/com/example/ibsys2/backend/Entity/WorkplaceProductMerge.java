@@ -21,6 +21,10 @@ public class WorkplaceProductMerge {
         return durationPerUnit;
     }
 
+    public int getSetupTime() {
+        return setupTime;
+    }
+
     @JsonCreator
     public WorkplaceProductMerge(@JsonProperty("workplaceId") int workplaceId,
                                  @JsonProperty("productId") int productId,

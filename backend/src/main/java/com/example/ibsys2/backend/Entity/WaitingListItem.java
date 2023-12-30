@@ -14,4 +14,12 @@ public class WaitingListItem {
     public String toString() {
         return "WaitingListItem [id=" + workplaceId + ", timeneed=" + waitingTime + "]";
     }
+
+    public int getWorkplaceId() {
+        return this.workplaceId;
+    }
+    
+    public int getWaitingTime() {
+        return this.waitingTime;
+    }
 }
