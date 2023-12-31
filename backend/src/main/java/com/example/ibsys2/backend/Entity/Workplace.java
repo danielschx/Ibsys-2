@@ -59,4 +59,8 @@ public class Workplace {
     public void setSetupTimes(ArrayList<SetupTimes> setupTimes) {
         this.setupTimes = setupTimes;
     }
+
+    public int getWaitingDuration() {
+        return this.waitingDuration;
+    }
 }

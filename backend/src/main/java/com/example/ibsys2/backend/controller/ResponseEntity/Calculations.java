@@ -1,10 +1,6 @@
 package com.example.ibsys2.backend.controller.ResponseEntity;
 
-
-
 import java.util.ArrayList;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.ibsys2.backend.Entity.Order;
 import com.example.ibsys2.backend.Entity.Product;
