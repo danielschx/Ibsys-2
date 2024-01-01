@@ -184,14 +184,14 @@ function ProductionProgram(props) {
                     )}
                   </Select>
                 </Box>
-                <Box sx={{ marginLeft: "1rem" }}>
+                {/* <Box sx={{ marginLeft: "1rem" }}>
                   <Button
                     variant="outlined"
                     onClick={(oEvent) => handleClick(oEvent, oElement)}
                   >
                     {t("simulation.splitItem")}
                   </Button>
-                </Box>
+                </Box> */}
               </Box>
               {(expandedItemIndex === index || allInformationOpen) && (
                 <Box
@@ -227,9 +227,9 @@ function ProductionProgram(props) {
                     padding: "1rem",
                   }}
                 >
-                  <Typography variant="h6" sx={{ marginBottom: "1rem" }}>
+                  {/* <Typography variant="h6" sx={{ marginBottom: "1rem" }}>
                     {t("simulation.splitItem")}
-                  </Typography>
+                  </Typography> */}
                   <Input
                     id="input"
                     type="number"

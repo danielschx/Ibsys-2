@@ -27,7 +27,7 @@ import com.example.ibsys2.backend.controller.ResponseEntity.WorkingTime;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("http://localhost:5173")
 public class Controller {
 
     @Autowired

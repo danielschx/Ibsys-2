@@ -1,26 +1,36 @@
-import {
-  Button,
-  Input,
-  TableContainer,
-  TextField,
-  Table,
-  TableRow,
-  TableHead,
-  TableCell,
-  TableBody,
-  Container,
-  Box,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Input, Typography, styled } from "@mui/material";
+
 import React, { useState } from "react";
 import { redirect } from "react-router";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
-import { useGlobalState } from "../components/GlobalStateProvider";
+import { useGlobalState } from "../../components/GlobalStateProvider";
 import { xml2json } from "xml-js";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+
+const Title = styled(Typography)({
+  fontSize: "2rem",
+  marginBottom: "1rem",
+});
+
+const UploadButtonContainer = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  marginTop: "1rem",
+});
+
+const StyledUploadButton = styled(Button)({
+  width: "100%",
+  backgroundColor: "#669999", // Hintergrundfarbe für den Upload-Button
+  color: "#fff", // Textfarbe für den Upload-Button
+  "&:hover": {
+    backgroundColor: "#a3c2c2", // Farbe für Hover-Zustand
+  },
+});
 
 function FileUpload() {
   const { t, i18n } = useTranslation("translation");
@@ -29,7 +39,7 @@ function FileUpload() {
   const [oForecast, fSetForecast] = useState({});
   const [bFileLoaded, fSetFileLoaded] = useState(false);
   const navigate = useNavigate();
-  const fHandleFileChange = (oEvent) => {
+  const fHandeFileChange = (oEvent) => {
     fSetFileToUpload(oEvent.target.files[0]);
   };
   const fSendFile = async () => {
@@ -42,6 +52,9 @@ function FileUpload() {
         content: oEvent.target.result,
       };
       file.content = JSON.parse(xml2json(file.content)).elements[0];
+
+      console.log("file: ", file);
+      console.log("file.content.attributes: ", file.content.attributes);
 
       try {
         const oResults = {
@@ -67,6 +80,8 @@ function FileUpload() {
           cycletimes: [],
           result: {},
         };
+
+        console.log("bis hier");
 
         if (file.content.elements[1].elements) {
           const aWarehouseStock = file.content.elements[1].elements.map(
@@ -308,57 +323,34 @@ function FileUpload() {
 
   return (
     <>
-      {!bFileLoaded && (
-        <Container
-          maxWidth="sm"
-          style={{
-            marginTop: "8rem",
-            padding: "2rem",
-            borderRadius: "8px",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          }}
+      <Title>{t("fileupload.chooseResult")}</Title>
+      <Input
+        type="file"
+        accept=".xml"
+        onChange={fHandeFileChange}
+        style={{ display: "none" }}
+        id="file-input"
+      />
+      <label htmlFor="file-input">
+        <StyledUploadButton
+          variant="contained"
+          component="span"
+          startIcon={<CloudUploadIcon />}
+          size="large"
         >
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-            textAlign="center"
+          {t("fileupload.uploadButton")}
+        </StyledUploadButton>
+      </label>
+      {!!oFileToUpload && (
+        <UploadButtonContainer>
+          <StyledUploadButton
+            variant="contained"
+            onClick={fSendFile}
+            size="large"
           >
-            <Typography variant="h4" gutterBottom>
-              Upload
-            </Typography>
-            <label htmlFor="file-input">
-              <input
-                type="file"
-                accept=".xml"
-                id="file-input"
-                style={{ display: "none" }}
-                onChange={fHandleFileChange}
-              />
-              <Button variant="contained" color="primary" component="span">
-                Datei auswählen
-              </Button>
-            </label>
-            {!!oFileToUpload && (
-              <Typography variant="body2">
-                (Datei ausgewählt: {oFileToUpload.name})
-              </Typography>
-            )}
-            {!!oFileToUpload && (
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={fSendFile}
-                style={{
-                  marginTop: "1rem",
-                }}
-              >
-                Datei hochladen
-              </Button>
-            )}
-          </Box>
-        </Container>
+            {t("fileupload.uploadButton")}
+          </StyledUploadButton>
+        </UploadButtonContainer>
       )}
     </>
   );

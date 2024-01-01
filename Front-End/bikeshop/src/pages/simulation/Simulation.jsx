@@ -15,6 +15,7 @@ import {
   TableRow,
   TableCell,
   Input,
+  styled,
   FormHelperText,
   Checkbox,
   FormControlLabel,
@@ -32,6 +33,22 @@ import { useGlobalState } from "../../components/GlobalStateProvider";
 import { InfoOutlined, WineBarRounded } from "@mui/icons-material";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+const StyledUploadButton = styled(Button)({
+  width: "100%",
+  backgroundColor: "#669999", // Hintergrundfarbe für den Upload-Button
+  color: "#fff", // Textfarbe für den Upload-Button
+  "&:hover": {
+    backgroundColor: "#a3c2c2", // Farbe für Hover-Zustand
+  },
+});
+
+const UploadButtonContainer = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  marginTop: "1rem",
+});
 
 function Simulation() {
   const { t, i18n } = useTranslation();
@@ -830,18 +847,29 @@ function Simulation() {
           {!bProductionPlanned && (
             <Container maxWidth="xl">
               <Box sx={{ p: 5 }}>
-                <Box sx={{ marginBottom: "20px", backgroundColor: "#f0f0f0" }}>
+                <Box sx={{ marginBottom: "32px", backgroundColor: "#f0f0f0" }}>
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
+                      padding: "14px",
+                      borderRadius: "8px",
+                      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                      backgroundColor: "#ffffff",
                     }}
                   >
-                    <Typography fontSize="20px" fontWeight="bold">
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: "bold",
+                        color: "#333333",
+                      }}
+                    >
                       {t("simulation.forecastInformation")}
                     </Typography>
                   </Box>
+
                   <TableContainer>
                     <Table>
                       <TableHead>
@@ -888,7 +916,17 @@ function Simulation() {
                     </Table>
                   </TableContainer>
                 </Box>
-                <Box sx={{ marginBottom: "20px" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    padding: "14px",
+                    borderRadius: "8px",
+                    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                    backgroundColor: "#ffffff",
+                  }}
+                >
                   {/* Vetriebssplanung */}
                   <Box
                     sx={{
@@ -904,7 +942,13 @@ function Simulation() {
                     >
                       <InfoOutlined />
                     </Tooltip>
-                    <Typography fontSize="20px" fontWeight="bold">
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: "bold",
+                        color: "#333333",
+                      }}
+                    >
                       {t("simulation.distributionPlanning")}
                     </Typography>
                   </Box>
@@ -983,14 +1027,30 @@ function Simulation() {
                     </Table>
                   </TableContainer>
                 </Box>
-                <Box sx={{ marginBottom: "20px" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    padding: "14px",
+                    borderRadius: "8px",
+                    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                    backgroundColor: "#ffffff",
+                  }}
+                >
                   {/* Produktionsplanung */}
                   <Box>
                     <Tooltip title={t("simulation.tooltipProductionPlanning")}>
                       <InfoOutlined />
                     </Tooltip>
                   </Box>
-                  <Typography fontSize="20px" fontWeight="bold">
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: "bold",
+                      color: "#333333",
+                    }}
+                  >
                     {t("simulation.productionPlanning")}
                   </Typography>
                   {/* <Button
@@ -1086,7 +1146,13 @@ function Simulation() {
                       <InfoOutlined />
                     </Tooltip>
                   </Box>
-                  <Typography fontSize="20px" fontWeight="bold">
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontWeight: "bold",
+                      color: "#333333",
+                    }}
+                  >
                     {t("simulation.inventoryOverview")}
                   </Typography>
 
@@ -1144,7 +1210,17 @@ function Simulation() {
                     </Table>
                   </TableContainer>
                 </Box>
-                <Box sx={{ marginBottom: "20px" }}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    padding: "14px",
+                    borderRadius: "8px",
+                    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                    backgroundColor: "#ffffff",
+                  }}
+                >
                   <Box
                     sx={{
                       display: "flex",
@@ -1155,7 +1231,13 @@ function Simulation() {
                     <Tooltip title={t("simulation.tooltipPartList")}>
                       <InfoOutlined />
                     </Tooltip>
-                    <Typography fontSize="20px" fontWeight="bold">
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: "bold",
+                        color: "#333333",
+                      }}
+                    >
                       {t("simulation.partListCalculation")}
                     </Typography>
                   </Box>
@@ -1206,7 +1288,7 @@ function Simulation() {
                                   }) => (
                                     <TableRow key={productId}>
                                       <TableCell>
-                                        {productId}: {t("simulation."+name)}
+                                        {productId}: {t("simulation." + name)}
                                       </TableCell>
                                       <TableCell>{stock}</TableCell>
                                       <TableCell>
@@ -1271,168 +1353,27 @@ function Simulation() {
                     </Table>
                   </TableContainer>
                 </Box>
-                <Box sx={{ marginBottom: "20px" }}>
-                  {/* Direktverkauf */}
-                  <TableContainer>
-                    <Table>
-                      <TableHead>
-                        <TableRow>
-                          <TableCell />
-                          <TableCell align="center">
-                            <Box>
-                              <Tooltip
-                                title={t("simulation.tooltipDirectSelling")}
-                              >
-                                <InfoOutlined />
-                              </Tooltip>
-                            </Box>
-                            <Typography fontSize="20px" fontWeight="bold">
-                              {t("fileupload.directSelling")}
-                            </Typography>
-                          </TableCell>
-                          <TableCell />
-                        </TableRow>
-                        <TableRow>
-                          {Object.entries(oPlanning.direct).map((oProduct) => {
-                            return (
-                              <TableCell>
-                                {t(`fileupload.product${oProduct[0]}`)}
-                              </TableCell>
-                            );
-                          })}
-                        </TableRow>
-                      </TableHead>
-                      <TableBody>
-                        <TableRow>
-                          {Object.entries(oPlanning.direct).map((oProduct) => {
-                            return (
-                              <TableCell
-                                t-key={oProduct[0]}
-                                onChange={fUpdateDirectAmount}
-                              >
-                                <InputLabel>
-                                  {t("simulation.directSellingQuantity")}
-                                </InputLabel>
-                                <Input
-                                  type="number"
-                                  error={!bValid}
-                                  style={{ width: "8rem" }}
-                                  defaultValue={oProduct[1].quantity}
-                                  onInput={(oEvent) => {
-                                    const value = oEvent.target.value;
-                                    if (value === "") {
-                                      oEvent.target.value = 0;
-                                    }
-                                  }}
-                                  inputProps={{
-                                    min: 0,
-                                    onKeyDown: (event) => {
-                                      if (
-                                        (!/^\d$/.test(event.key) &&
-                                          !allowedKeys.includes(event.key)) ||
-                                        (event.key === "Backspace" &&
-                                          event.target.value.length === 1)
-                                      ) {
-                                        event.preventDefault();
-                                      }
-                                    },
-                                  }}
-                                />
-                              </TableCell>
-                            );
-                          })}
-                        </TableRow>
-                        <TableRow>
-                          {Object.entries(oPlanning.direct).map((oProduct) => {
-                            return (
-                              <TableCell
-                                t-key={oProduct[0]}
-                                onChange={fUpdateDirectPrice}
-                              >
-                                <InputLabel>
-                                  {t("simulation.directSellingPrice")}
-                                </InputLabel>
-                                <Input
-                                  type="number"
-                                  error={!bValid}
-                                  style={{ width: "8rem" }}
-                                  defaultValue={oProduct[1].price}
-                                  onInput={(oEvent) => {
-                                    const value = oEvent.target.value;
-                                    if (value === "") {
-                                      oEvent.target.value = 0;
-                                    }
-                                  }}
-                                  inputProps={{
-                                    min: 0,
-                                    onKeyDown: (event) => {
-                                      if (
-                                        (!/^\d$/.test(event.key) &&
-                                          !allowedKeys.includes(event.key)) ||
-                                        (event.key === "Backspace" &&
-                                          event.target.value.length === 1)
-                                      ) {
-                                        event.preventDefault();
-                                      }
-                                    },
-                                  }}
-                                />
-                              </TableCell>
-                            );
-                          })}
-                        </TableRow>
-                        <TableRow>
-                          {Object.entries(oPlanning.direct).map((oProduct) => {
-                            return (
-                              <TableCell
-                                t-key={oProduct[0]}
-                                onChange={fUpdateDirectPenalty}
-                              >
-                                <InputLabel>
-                                  {t("simulation.directSellingPenalty")}
-                                </InputLabel>
-                                <Input
-                                  type="number"
-                                  error={!bValid}
-                                  style={{ width: "8rem" }}
-                                  defaultValue={oProduct[1].penalty}
-                                  onInput={(oEvent) => {
-                                    const value = oEvent.target.value;
-                                    if (value === "") {
-                                      oEvent.target.value = 0;
-                                    }
-                                  }}
-                                  inputProps={{
-                                    min: 0,
-                                    onKeyDown: (event) => {
-                                      if (
-                                        (!/^\d$/.test(event.key) &&
-                                          !allowedKeys.includes(event.key)) ||
-                                        (event.key === "Backspace" &&
-                                          event.target.value.length === 1)
-                                      ) {
-                                        event.preventDefault();
-                                      }
-                                    },
-                                  }}
-                                />
-                              </TableCell>
-                            );
-                          })}
-                        </TableRow>
-                      </TableBody>
-                    </Table>
-                  </TableContainer>
-                </Box>
               </Box>
-              <Button
+
+              <UploadButtonContainer>
+                <StyledUploadButton
+                  variant="contained"
+                  onClick={fSendForecastForPlanning}
+                  size="large"
+                  disabled={!bValid}
+                >
+                  {t("simulation.planPeriod")}
+                </StyledUploadButton>
+              </UploadButtonContainer>
+              {/* <Button
                 variant="contained"
                 onClick={fSendForecastForPlanning}
                 disabled={!bValid}
                 sx={{ mt: 0 }}
               >
                 {t("simulation.planPeriod")}
-              </Button>
+              </Button> */}
+
               {!bValid && (
                 <FormHelperText id="form-helper" error>
                   {t("simulation.inputInvalid")}
@@ -1454,7 +1395,7 @@ function Simulation() {
               {activeStep != aSteps.length ? (
                 <Fragment>
                   <Typography>{aSteps[activeStep]}</Typography>
-                  <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
+                  <Box sx={{ display: "flex", flexDirection: "row", pt: 5 }}>
                     <div>
                       <Button
                         color="inherit"
@@ -1527,6 +1468,7 @@ function Simulation() {
                       >
                         {t("simulation.next")}
                       </Button>
+
                       <Button
                         onClick={fHandleCalcWorktimes}
                         style={{
@@ -1538,6 +1480,7 @@ function Simulation() {
                       >
                         {t("simulation.calcWorktimes")}
                       </Button>
+
                       <Button
                         onClick={fHandleCalcOrders}
                         style={{

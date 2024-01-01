@@ -44,9 +44,7 @@ function DeliveryProgram(props) {
         <InfoOutlined />
       </Tooltip>
       {props.data.map((oElement, index) => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
         let [bValid, fSetValid] = useState(true);
-        // eslint-disable-next-line react-hooks/rules-of-hooks
         const { state, setState } = useGlobalState();
 
         const fValidHandler = (bValid) => {
@@ -157,7 +155,7 @@ function DeliveryProgram(props) {
                 </Button>
               </Box>
             </Box>
-            <Box marginLeft="auto" marginRight="0rem">
+            <Box marginLeft="2rem" marginRight="1rem">
               <ModeMenu value={oElement.modus} element={oElement} />
             </Box>
           </Box>

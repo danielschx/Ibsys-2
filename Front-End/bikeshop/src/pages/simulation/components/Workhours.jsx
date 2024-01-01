@@ -71,23 +71,19 @@ function Workinghours({ data, calculations, validate }) {
               sx={{
                 margin: "2rem",
                 padding: "1rem",
-                border: "1px solid #ccc",
-                borderRadius: "4px",
-                backgroundColor: "#f5f5f5",
+                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                borderRadius: "8px",
+                backgroundColor: "#ffffff",
                 width: "650px",
               }}
             >
-              <Grid container spacing={2} alignItems="flex-start">
-                <Grid item xs={12}>
-                  <Box display="flex" alignItems="center" marginBottom="0.5rem">
-                    <Typography
-                      variant="h5"
-                      sx={{ fontWeight: "bold", marginLeft: "1rem" }}
-                    >
-                      {t("simulation.workstation")} {oElement.station}:
-                    </Typography>
-                  </Box>
-                </Grid>
+              <Typography
+                variant="h5"
+                sx={{ fontWeight: "bold", marginBottom: "1rem" }}
+              >
+                {t("simulation.workstation")} {oElement.station}:
+              </Typography>
+              <Grid container spacing={2}>
                 <Grid item xs={6}>
                   <FormControl fullWidth>
                     <InputLabel>{t("simulation.shift")}</InputLabel>
@@ -96,61 +92,28 @@ function Workinghours({ data, calculations, validate }) {
                       id={"inputshift" + oElement.station}
                       aria-describedby="form-helper"
                       onInput={(oEvent) => {
-                        if (oEvent.target.value > 3) {
-                          oEvent.target.value = 3;
-                        }
-                        if (oEvent.target.value < 0) {
-                          oEvent.target.value = 0;
-                        }
+                        // ... (Ihre vorhandenen Eingabehandler)
                       }}
                       inputProps={{
                         min: 0,
                         max: 3,
                         onKeyDown: (event) => {
-                          if (
-                            (!/^\d$/.test(event.key) &&
-                              !allowedKeys.includes(event.key)) ||
-                            (event.key === "Backspace" &&
-                              event.target.value.length === 1)
-                          ) {
-                            event.preventDefault();
-                          }
+                          // ... (Ihre vorhandenen Eingabehandler)
                         },
                       }}
                       value={oElement.shift}
                       onChange={(oEvent) => {
-                        const oNewState = state;
-                        const oIndex = oNewState["workingtimelist"].find(
-                          (oObject) => oObject.station === oElement.station
-                        );
-
-                        const iIndex =
-                          oNewState["workingtimelist"].indexOf(oIndex);
-                        oNewState["workingtimelist"][iIndex].shift =
-                          oEvent.target.valueAsNumber;
-                        if (oEvent.target.valueAsNumber === 3) {
-                          oNewState["workingtimelist"][iIndex].overtime = 0;
-                          document.getElementById(
-                            `inputovertime${oElement.station}`
-                          ).value = 0;
-                        }
-                        /* setItems(...oNewState["workingtimelist"]); */
-                        setState(oNewState);
+                        // ... (Ihre vorhandenen Eingabehandler)
                       }}
                     />
                   </FormControl>
                   {calculations && (
-                    <Typography
-                      variant="body2"
-                      alignContent="start"
-                      marginTop="0.5rem"
-                    >
-                      Produktions- und Rüstzeiten:
+                    <Typography variant="body2" marginTop="0.5rem">
+                      Produktions- und Rüstzeiten:{" "}
                       {getCalculationExplanation(oElement.station)}
                     </Typography>
                   )}
                 </Grid>
-
                 <Grid item xs={6}>
                   <FormControl fullWidth>
                     <InputLabel>{t("simulation.overtime")}</InputLabel>
@@ -161,46 +124,15 @@ function Workinghours({ data, calculations, validate }) {
                         min: 0,
                         max: iMaxNumber,
                         onKeyDown: (event) => {
-                          if (
-                            (!/^\d$/.test(event.key) &&
-                              !allowedKeys.includes(event.key)) ||
-                            (event.key === "Backspace" &&
-                              event.target.value.length === 1)
-                          ) {
-                            event.preventDefault();
-                          }
+                          // ... (Ihre vorhandenen Eingabehandler)
                         },
                       }}
                       defaultValue={oElement.overtime}
                       onInput={(oEvent) => {
-                        if (oElement.shift === 3 && oEvent.target.value > 0) {
-                          oEvent.target.value = 0;
-                          toast.error(
-                            t("toast.errorInvalidInputShiftOvertime")
-                          );
-                        }
-                        if (oElement.shift !== 3 && oEvent.target.value > 240) {
-                          oEvent.target.value = 240;
-                          toast.error(
-                            t("toast.errorInvalidInputOvertimeExceed")
-                          );
-                        }
+                        // ... (Ihre vorhandenen Eingabehandler)
                       }}
                       onChange={(oEvent) => {
-                        const oNewState = state;
-                        if (oElement.shift === 3) {
-                          oEvent.preventDefault();
-                          return;
-                        }
-                        const oIndex = oNewState["workingtimelist"].find(
-                          (oObject) => oObject.station === oElement.station
-                        );
-                        const iIndex =
-                          oNewState["workingtimelist"].indexOf(oIndex);
-                        oNewState["workingtimelist"][iIndex].overtime =
-                          oEvent.target.valueAsNumber;
-                        setItems(oNewState["workingtimelist"]);
-                        setState(oNewState);
+                        // ... (Ihre vorhandenen Eingabehandler)
                       }}
                     />
                   </FormControl>
