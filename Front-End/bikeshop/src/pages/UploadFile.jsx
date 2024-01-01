@@ -312,7 +312,7 @@ function FileUpload() {
         <Container
           maxWidth="sm"
           style={{
-            marginTop: "2rem",
+            marginTop: "8rem",
             padding: "2rem",
             borderRadius: "8px",
             boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
@@ -326,7 +326,7 @@ function FileUpload() {
             textAlign="center"
           >
             <Typography variant="h4" gutterBottom>
-              Upload Seite
+              Upload
             </Typography>
             <label htmlFor="file-input">
               <input
