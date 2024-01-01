@@ -11,6 +11,12 @@ import com.example.ibsys2.backend.Entity.FutureOrder;
 import com.example.ibsys2.backend.Entity.Order;
 import com.example.ibsys2.backend.Entity.Product;
 import com.example.ibsys2.backend.Entity.WaitingListProduct;
+import com.example.ibsys2.backend.database.ProductsDB;
+import com.example.ibsys2.backend.database.WaitingListForWorkstationsDB;
+import com.example.ibsys2.backend.database.WaitingListProductsDB;
+import com.example.ibsys2.backend.database.ProductionProductsDB;
+import com.example.ibsys2.backend.database.ForecastsDB;
+import com.example.ibsys2.backend.database.OrdersDB;
 
 @Component
 public class ImportHandler {
@@ -41,7 +47,7 @@ public class ImportHandler {
                 articlesMap.put(id, amount);
             }
         }
-        // ProductsDB.updateProductStock(articlesMap);
+        ProductsDB.updateProductStock(articlesMap);
     }
 
     /**
@@ -65,7 +71,7 @@ public class ImportHandler {
                 }
             }
         }
-        // ProductionProductsDB.updateProductionProductsStock(productionProductsMap);
+        ProductionProductsDB.updateProductionProductsStock(productionProductsMap);
     }
 
     /**
@@ -83,7 +89,7 @@ public class ImportHandler {
                 workstations.put(id, timeNeed);
             }
         }
-        // WaitingListForWorkstationsDB.updateWaitingListForWorkstations(workstations);
+        WaitingListForWorkstationsDB.updateWaitingListForWorkstations(workstations);
     }
 
     private void parseWaitingList(Map<String, Object> requestBody) {
@@ -136,7 +142,7 @@ public class ImportHandler {
         }
 
         System.out.println("Alle ausgegeben: ");
-        // WaitingListProductsDB.putWaitingListProducts(mergedList);
+        WaitingListProductsDB.putWaitingListProducts(mergedList);
     }
 
     private ArrayList<WaitingListProduct> mergeWaitingListProducts(List<WaitingListProduct> productList) {
@@ -163,51 +169,49 @@ public class ImportHandler {
         forecastMap.put(1, Integer.parseInt((String) forecast.get("p1")));
         forecastMap.put(2, Integer.parseInt((String) forecast.get("p2")));
         forecastMap.put(3, Integer.parseInt((String) forecast.get("p3")));
-        // ForecastsDB.updateForecasts(forecastMap);
+        ForecastsDB.updateForecasts(forecastMap);
     }
 
     private void processOrders(Map<String, Object> requestBody) {
         List<Map<String, Object>> orders = (List<Map<String, Object>>) requestBody.get("futureinwardstockmovement");
-        // ArrayList<Product> products = ProductsDB.getProducts();
+        ArrayList<Product> products = ProductsDB.getProducts();
         ArrayList<FutureOrder> futureOrders = new ArrayList<>();
         for (Map<String, Object> order : orders) {
             int productId = Integer.parseInt(order.get("article").toString());
             int quantity = Integer.parseInt(order.get("amount").toString());
-            /*
-             * Product product = null;
-             * for (Product p : products) {
-             * if (p.getId() == productId) {
-             * product = p;
-             * break;
-             * }
-             * }
-             * Map<String, Object> overview = (Map<String, Object>)
-             * requestBody.get("overview");
-             * int period = Integer.parseInt((String) overview.get("period"));
-             * int orderPeriode = Integer.parseInt(order.get("orderperiod").toString());
-             * int periodDifference = period + 1 - orderPeriode;
-             * int maxDeliveryTime = product.getDeliveryTime();
-             * int mode = Integer.parseInt(order.get("mode").toString());
-             * int daysAfterToday = 0;
-             * if (mode == 4) {
-             * daysAfterToday = maxDeliveryTime / 2 - 5 * periodDifference;
-             * }
-             * if (mode != 4) {
-             * daysAfterToday = maxDeliveryTime - 5 * periodDifference;
-             * }
-             * FutureOrder futureOrder = new FutureOrder(productId, quantity,
-             * daysAfterToday);
-             * futureOrders.add(futureOrder);
-             * }
-             * ArrayList<Order> ordersDb = new ArrayList<>();
-             * for (FutureOrder order : futureOrders) {
-             * Order orderDb = new Order(
-             * ordersDb.size() + 1, order.getProductId(), order.getQuantity(),
-             * order.getDaysAfterToday());
-             * ordersDb.add(orderDb);
-             * }
-             * OrdersDB.putOrders(ordersDb);
-             */
+
+            Product product = null;
+            for (Product p : products) {
+                if (p.getId() == productId) {
+                    product = p;
+                    break;
+                }
+            }
+            Map<String, Object> overview = (Map<String, Object>) requestBody.get("overview");
+            int period = Integer.parseInt((String) overview.get("period"));
+            int orderPeriode = Integer.parseInt(order.get("orderperiod").toString());
+            int periodDifference = period + 1 - orderPeriode;
+            int maxDeliveryTime = product.getDeliveryTime();
+            int mode = Integer.parseInt(order.get("mode").toString());
+            int daysAfterToday = 0;
+            if (mode == 4) {
+                daysAfterToday = maxDeliveryTime / 2 - 5 * periodDifference;
+            }
+            if (mode != 4) {
+                daysAfterToday = maxDeliveryTime - 5 * periodDifference;
+            }
+            FutureOrder futureOrder = new FutureOrder(productId, quantity,
+                    daysAfterToday);
+            futureOrders.add(futureOrder);
         }
+        ArrayList<Order> ordersDb = new ArrayList<>();
+        for (FutureOrder order : futureOrders) {
+            Order orderDb = new Order(
+                    ordersDb.size() + 1, order.getProductId(), order.getQuantity(),
+                    order.getDaysAfterToday());
+            ordersDb.add(orderDb);
+        }
+        OrdersDB.putOrders(ordersDb);
+
     }
 }

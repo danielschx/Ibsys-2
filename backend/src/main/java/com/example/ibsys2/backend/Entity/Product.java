@@ -80,4 +80,17 @@ public class Product {
     public String getName() {
         return this.name;
     }
+    public int getVariance() {
+        return this.variance;
+    }
+    public  HashMap<Integer, Integer> getStockHistory() {
+        return this.stockHistory;
+    }
+    public  int getDiscountQuantity() {
+        return this.discountQuantity;
+    }
+
+    public void setStockHistory(HashMap<Integer, Integer> newStockHistory) {
+        this.stockHistory = newStockHistory;
+    }
 }
