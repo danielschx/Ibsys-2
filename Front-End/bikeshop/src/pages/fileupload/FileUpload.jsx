@@ -338,7 +338,7 @@ function FileUpload() {
           startIcon={<CloudUploadIcon />}
           size="large"
         >
-          {t("fileupload.uploadButton")}
+          {t("fileupload.buttonLabel")}
         </StyledUploadButton>
       </label>
       {!!oFileToUpload && (
