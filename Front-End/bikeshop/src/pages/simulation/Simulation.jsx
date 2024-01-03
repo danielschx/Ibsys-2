@@ -22,6 +22,8 @@ import {
   Tooltip,
   InputLabel,
 } from "@mui/material";
+import "./StepperStyle.css"; // Importiere eine separate CSS-Datei für benutzerdefinierte Stile
+
 import axios from "axios";
 import { Box } from "@mui/system";
 import { useTranslation } from "react-i18next";
@@ -1383,14 +1385,12 @@ function Simulation() {
           )}
           {bProductionPlanned && (
             <Box sx={{ bgcolor: "rgb(250, 250, 250)", height: "900px", p: 5 }}>
-              <Stepper activeStep={activeStep}>
-                {aSteps.map((sStep) => {
-                  return (
-                    <Step>
-                      <StepLabel>{sStep}</StepLabel>
-                    </Step>
-                  );
-                })}
+              <Stepper activeStep={activeStep} className="custom-stepper">
+                {aSteps.map((sStep, index) => (
+                  <Step key={index} className="custom-step">
+                    <StepLabel className="custom-step-label">{sStep}</StepLabel>
+                  </Step>
+                ))}
               </Stepper>
               {activeStep != aSteps.length ? (
                 <Fragment>

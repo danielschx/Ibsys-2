@@ -1,0 +1,16 @@
+.custom-stepper {
+  background-color: transparent;
+  padding: 20px 0;
+}
+
+.custom-step {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.custom-step-label {
+  color: #333;
+}
