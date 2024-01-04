@@ -1,10 +1,10 @@
 {
   "home": {
-    "welcomeText": "Planen Sie hier ihre Produktion. Beginnen Sie bei 'Simulation über XML Datei', um die aktuellen Informationen hochzuladen. Dort können Sie dann auf Basis der Prognosen ihr Produktionsprogramm festlegen. Danach sehen in dem Reiter 'Simulation' die vorgeschlagenen Bestell- und Produktionsprogramme."
+    "welcomeText": "Hier Produktion planen. Mit 'Simulation über XML Datei' beginnen, um die aktuellen Informationen hochzuladen. Dort kann auf Basis der Prognosen das Produktionsprogramm festgelegt werden. Danach können im Reiter 'Simulation' die vorgeschlagenen Bestell- und Produktionsprogramme eingesehen werden."
   },
   "fileupload": {
     "title": "Datei für Simulation hochladen",
-    "header": "Wählen sie eine Datei aus",
+    "header": "Datei auswählen",
     "labelRight": "",
     "labelLeft": "",
     "buttonLabel": "Datei auswählen",
@@ -15,7 +15,7 @@
     "productp3": "Produkt 3 (Herrenfahrräder)",
     "planSimulation": "Simulation planen",
     "forecast": "Prognose",
-    "chooseResult": "Wählen Sie die Result-Datei aus der letzten Periode für die Simulation aus.",
+    "chooseResult": "Result-Datei aus der letzten Periode auswählen",
     "directSelling": "Direktverkäufe",
     "overallProduction": "Gesamtproduktionsplanung"
   },
@@ -112,7 +112,7 @@
     "Schweißdraht (KDH)": "Schweißdraht (KDH)",
     "orderAmount": "Bestellmenge",
     "productionAmount": "Produktionsmenge",
-    "errorMissingInput": "Bitte achten Sie darauf, dass ihre Eingabe nur Zahlen enthält und nicht leer ist.",
+    "errorMissingInput": "Eingabe darf nur Zahlen enthalten und nicht leer sein.",
     "shippingMethod": "Versandart",
     "shippingMethods": {
       "normal": "Standard",
@@ -131,16 +131,16 @@
     "orderListOverview": "Übersicht: Bestellungen",
     "productionListOverview": "Übersicht: Produktion",
     "workingTimeListOverview": "Übersicht: Arbeitszeiten",
-    "inputInvalid": "Bitte geben Sie eine Zahl ein und lassen Sie die Felder nicht leer.",
-    "selectSplit": "Wählen Sie aus, ob Produktionsaufträge gesplitted werden sollen.",
+    "inputInvalid": "Zahl eingeben. Die Felder dürfen nicht leer sein.",
+    "selectSplit": "Auwählen, ob Produktionsaufträge gesplitted werden sollen.",
     "infosanzeigen": "Informationen anzeigen",
     "infosausblenden": "Informationen ausblenden",
-    "tooltipProductionPlanning": "Planen Sie hier ihre Produktion für die nächste Periode.\nDie vorgegebenen Werte entstehen abhängig der gegebenen Prognosen.\nBitte geben Sie nur Zahlen ein, die durch 10 teilbar sind und lassen die Felder nicht leer.",
-    "tooltipProductionProgram": "Hier können Sie das berechnete Produktionsprogramm einsehen. Bitte geben Sie nur Zahlen ein, die durch 10 teilbar sind und lassen die Felder nicht leer.",
-    "tooltipDeliveryProgram": "Hier können Sie das berechnete Bestellprogramm einsehen. Bitte geben Sie nur Zahlen ein, die durch 10 teilbar sind und lassen die Felder nicht leer.",
-    "tooltipWorkhours": "Hier können Sie die berechneten Mehrschichten und Überstunden einsehen. Bitte geben Sie nur Zahlen ein, die durch 10 teilbar sind und lassen die Felder nicht leer.",
-    "tooltipOverview": "Hier können Sie die gesamte Planung der kommenden Periode einsehen. Drücken Sie auf 'Beenden', um eine Datei mit der Planung zu generieren.",
-    "tooltipDirectSelling": "Hier können Sie ihre Direktverkäufe planen. Bitte geben Sie nur ganze Zahlen als Werte ein. Angegebene Mengen beim Direktverkauf werden nicht automatisch zu Distributions- oder Produktionsprogramm hinzugerechnet.",
+    "tooltipProductionPlanning": "Produktion für die nächste Periode planen.\nDie vorgegebenen Werte entstehen abhängig der gegebenen Prognosen.\nWichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
+    "tooltipProductionProgram": "Berechnetes Produktionsprogramm. \nWichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
+    "tooltipDeliveryProgram": "Berechnetes Bestellprogramm. \nWichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
+    "tooltipWorkhours": "Berechnete Mehrschichten und Überstunden. \nWichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
+    "tooltipOverview": "Gesamte Planung der kommenden Periode. Auf 'Beenden' klicken, um eine Datei mit der Planung zu generieren.",
+    "tooltipDirectSelling": "Direktverkäufe planen. \nWichtig: Nur ganze Zahlen als Werte eingeben. Angegebene Mengen beim Direktverkauf werden nicht automatisch zu Distributions- oder Produktionsprogramm hinzugerechnet.",
     "productionPlanningAmount": "Produktionsmenge",
     "directSellingQuantity": "Menge",
     "directSellingPrice": "Preis in €",
@@ -155,7 +155,7 @@
     "tooltipInventoryOverviewEndOfPeriod": "",
     "inventoryOverview": "Inventarübersicht am Ende der Perioden",
     "calcWorktimes": "Arbeitszeiten berechnen",
-    "tooltipPartList": "Übersicht der Stücklistenauflösung, also welches Bauteil für welches Produkt benötigt wird. Hier können Sie die Sicherheitsbestände der jeweiligen Bauteile festlegen. Bitte legen Sie nur Sicherheitsbestände fest, die durch 10 teilbar sind. Mithilfe der Sicherheitsbestände und ihrer Produktionsplanung ergeben sich die tatsächlichen Produktionsaufträge.",
+    "tooltipPartList": "Übersicht der Stücklistenauflösung, d.h. welches Bauteil für welches Produkt benötigt wird. Hier können die Sicherheitsbestände der jeweiligen Bauteile festlegen werden. \nWichtig: Nur Sicherheitsbestände festlegen, die durch 10 teilbar sind. Mithilfe der Sicherheitsbestände und der Produktionsplanung ergeben sich die tatsächlichen Produktionsaufträge.",
     "partListCalculation": "Stücklistenauflösung",
     "distributionPlanning": "Vertriebsplanung",
     "confirm": "Bestätigen",
@@ -165,22 +165,22 @@
     "waitingListQuantity": "Menge auf Warteliste",
     "workhoursInfo": {
       "info1": "Berechnung der Schichten und Überminuten:",
-      "info2": "Eine normale Arbeitswoche (tägliche 8-Stunden-Schicht) besteht aus 40 Std, bzw. 2400 Min pro Woche.",
-      "info3": "Bei bis zu 800 Min mehr (insgesamt bis zu 3200 Minuten) werden Überminuten angeordnet. Diese werden durch die 5 Arbeitstage in der Woche geteilt.",
-      "info4": "Bei über 3200 Min Bedarf wird eine zweite Schicht und bei über 4800+800=5600 Min eine dritte Schicht angeordnet.",
-      "info5": "Beispiel: Bei 3000 Min Bedarf ergibt das 1 Schicht und 600/5 = 120 Überminuten pro Tag."
+      "info2": "Normale Arbeitswoche (tägliche 8-Stunden-Schicht) = 40 Std = 2.400 Min. pro Woche.",
+      "info3": "Überminuten = 2.401 - 3.200 Min., Überminuten werden durch die 5 Arbeitstage in der Woche geteilt.",
+      "info4": "Zweite Schicht = Ab 3.201 Min., Dritte Schicht = Ab 5.600 Min. (4.800 + 800)",
+      "info5": "Beispiel: 3.000 Min. Bedarf = 1 Schicht und 600/5=120 Überminuten pro Tag."
     },
     "partProduction": "Produktionsaufträge",
     "amountPart": "Stück"
   },
   "toast": {
-    "infoSplitItem": "Ein zu produzierendes Produkt wurde gesplittet. Sie finden es am Ende der Produktionsliste.",
-    "infoStartCalculation": "Ihr Produktionsplan wird berechnet. Dies kann einen Moment dauern.",
-    "successPeriodCalculation": "Ihr Produktionsplan wurde berechnet. Sie werden weitergeleitet.",
+    "infoSplitItem": "Ein zu produzierendes Produkt wurde gesplittet. Es ist am Ende der Produktionsliste zu finden.",
+    "infoStartCalculation": "Berechnung des Produktionsplans läuft.",
+    "successPeriodCalculation": "Produktionsplan wurde berechnet. Weiterleitung erfolgt.",
     "successFileUpload": "Die Datei wurde erfolgreich hochgeladen. Die neusten Daten werden nun als Basis für die Periodenplanung genutzt.",
-    "errorFileUpload": "Etwas ist schief gegangen. Bitte versuchen Sie es mit einer anderen Datei oder wenden Sie sich an einen Administrator.",
-    "generateXML": "XML Datei ihrer geplanten Werte wird generiert",
-    "errorInvalidInputOvertimeExceed": "Bitte überschreiten Sie nicht den Wert von 241 Überminuten.",
+    "errorFileUpload": "Etwas ist schief gegangen. Bitte eine andere Datei hochladen oder an einen Administrator wenden.",
+    "generateXML": "XML-Datei der geplanten Werte wird generiert",
+    "errorInvalidInputOvertimeExceed": "Wert von 241 Überminuten darf nicht überschritten werden.",
     "errorInvalidInputShiftOvertime": "Bei drei Schichten können keine Überminuten angeordnet werden.",
     "errorNotDivisibleBy10": "Der eingegebene Wert muss durch 10 teilbar sein."
   }
