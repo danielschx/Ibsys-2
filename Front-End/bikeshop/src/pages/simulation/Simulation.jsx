@@ -1477,7 +1477,7 @@ function Simulation() {
                           visibility:
                             activeStep === aSteps.length - 1
                               ? "visible"
-                              : "hidden", marginTop: "-150px", padding: "6px 40px"
+                              : "hidden", marginTop: "-70px", padding: "6px 40px"
                         }}
                         disabled={!bGlobalValid}
                       >
