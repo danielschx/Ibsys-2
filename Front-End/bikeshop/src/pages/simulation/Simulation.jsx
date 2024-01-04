@@ -3,7 +3,6 @@ import { create } from "xmlbuilder";
 import {
   Button,
   Container,
-  Divider,
   Step,
   StepLabel,
   Stepper,
@@ -17,8 +16,6 @@ import {
   Input,
   styled,
   FormHelperText,
-  Checkbox,
-  FormControlLabel,
   Tooltip,
   InputLabel,
 } from "@mui/material";
@@ -849,15 +846,13 @@ function Simulation() {
           {!bProductionPlanned && (
             <Container maxWidth="xl">
               <Box sx={{ p: 5 }}>
-                <Box sx={{ marginBottom: "32px" }}>
+                <Box sx={{ marginBottom: "32px", boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", borderRadius: "8px", p: 2 }}>
                   <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
                       padding: "14px",
-                      borderRadius: "8px",
-                      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
                       backgroundColor: "#ffffff",
                     }}
                   >
@@ -925,7 +920,7 @@ function Simulation() {
                     padding: "14px",
                     borderRadius: "8px",
                     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "#ffffff", mb: 4
                   }}
                 >
                   {/* Vetriebssplanung */}
@@ -1036,7 +1031,7 @@ function Simulation() {
                     padding: "14px",
                     borderRadius: "8px",
                     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "#ffffff", mb: 4
                   }}
                 >
                   {/* Produktionsplanung */}
@@ -1136,7 +1131,7 @@ function Simulation() {
                     </Table>
                   </TableContainer>
                 </Box>
-                <Box sx={{ marginBottom: "20px", backgroundColor: "#f0f0f0" }}>
+                <Box sx={{ marginBottom: "20px", backgroundColor: "#f0f0f0", py: 2, borderRadius: "8px", mb: 4 }}>
                   {/* Inventarüberblick */}
                   <Box>
                     <Tooltip
