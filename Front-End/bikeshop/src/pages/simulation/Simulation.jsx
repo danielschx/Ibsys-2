@@ -904,8 +904,7 @@ function Simulation() {
                                       <Input
                                         type="number"
                                         style={{ width: "8rem" }}
-                                        value={oPeriod[oProduct[0]]}
-                                        disabled
+                                        defaultValue={oPeriod[oProduct[0]]}
                                       />
                                     </TableCell>
                                   );
