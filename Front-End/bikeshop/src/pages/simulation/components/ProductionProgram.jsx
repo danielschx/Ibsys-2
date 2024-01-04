@@ -202,7 +202,10 @@ function ProductionProgram(props) {
                     {t("simulation.component")}: {oElement.name}
                   </p>
                   {oElement.informations.map((info, infoIndex) => (
-                    <p key={infoIndex}>{info}</p>
+                    <div key={infoIndex}>
+                      <p>{info}</p>
+                      {info.includes("Sicherheitsbestand") && <hr />}
+                    </div>
                   ))}
                 </Box>
               )}

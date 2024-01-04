@@ -849,7 +849,7 @@ function Simulation() {
           {!bProductionPlanned && (
             <Container maxWidth="xl">
               <Box sx={{ p: 5 }}>
-                <Box sx={{ marginBottom: "32px", backgroundColor: "#f0f0f0" }}>
+                <Box sx={{ marginBottom: "32px" }}>
                   <Box
                     sx={{
                       display: "flex",
