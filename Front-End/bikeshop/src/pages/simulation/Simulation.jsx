@@ -35,7 +35,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const StyledUploadButton = styled(Button)({
-  width: "100%",
+  // px: 3,
   backgroundColor: "#669999", // Hintergrundfarbe für den Upload-Button
   color: "#fff", // Textfarbe für den Upload-Button
   "&:hover": {
@@ -1340,6 +1340,7 @@ function Simulation() {
                   onClick={fSendForecastForPlanning}
                   size="large"
                   disabled={!bValid}
+                  sx={{ px: 5 }}
                 >
                   {t("simulation.planPeriod")}
                 </StyledUploadButton>
@@ -1439,7 +1440,7 @@ function Simulation() {
                             activeStep !== aSteps.length - 4 &&
                             activeStep !== aSteps.length - 3
                               ? "visible"
-                              : "hidden", marginTop: "48px"
+                              : "hidden", marginTop: "48px", padding: "6px 40px"
                         }}
                         disabled={!bGlobalValid}
                       >
@@ -1452,7 +1453,7 @@ function Simulation() {
                           visibility:
                             activeStep === aSteps.length - 4
                               ? "visible"
-                              : "hidden", marginTop: "-54px"
+                              : "hidden", marginTop: "-54px", padding: "6px 40px"
                         }}
                       >
                         {t("simulation.calcWorktimes")}
@@ -1464,7 +1465,7 @@ function Simulation() {
                           visibility:
                             activeStep === aSteps.length - 3
                               ? "visible"
-                              : "hidden", marginTop: "-100px"
+                              : "hidden", marginTop: "-100px", padding: "6px 40px"
                         }}
                       >
                         {t("simulation.calcOrders")}
@@ -1476,7 +1477,7 @@ function Simulation() {
                           visibility:
                             activeStep === aSteps.length - 1
                               ? "visible"
-                              : "hidden", marginTop: "-150px"
+                              : "hidden", marginTop: "-150px", padding: "6px 40px"
                         }}
                         disabled={!bGlobalValid}
                       >

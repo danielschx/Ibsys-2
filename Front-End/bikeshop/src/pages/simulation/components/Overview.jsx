@@ -30,11 +30,12 @@ function Overview(props) {
     <>
       <Box alignContent="center">
         <Box>
-          <Tooltip arrow title={t("simulation.tooltipOverview")}>
+          <Tooltip arrow title={t("simulation.tooltipOverview")} 
+              sx={{ m: "16px 0 -24px 32px" }}>
             <InfoOutlined />
           </Tooltip>
         </Box>
-        <Box margin="2rem">
+        <Box sx={{ m: 3 }}>
           <TableContainer component={Paper}>
             <Table>
               <TableHead>

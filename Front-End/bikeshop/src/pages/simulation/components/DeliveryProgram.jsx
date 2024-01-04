@@ -60,6 +60,7 @@ function DeliveryProgram(props) {
             margin="1rem"
             border={1}
             borderRadius="5px"
+            borderColor="#e8e8e8"
             display="flex"
             alignItems="flex-start"
             padding="1rem"
