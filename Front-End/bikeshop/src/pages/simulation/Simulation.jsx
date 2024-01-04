@@ -18,6 +18,7 @@ import {
   FormHelperText,
   Tooltip,
   InputLabel,
+  Stack,
 } from "@mui/material";
 import "./StepperStyle.css"; // Importiere eine separate CSS-Datei für benutzerdefinierte Stile
 
@@ -851,7 +852,6 @@ function Simulation() {
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "center",
                       padding: "14px",
                       backgroundColor: "#ffffff",
                     }}
@@ -912,6 +912,7 @@ function Simulation() {
                     </Table>
                   </TableContainer>
                 </Box>
+
                 <Box
                   sx={{
                     display: "flex",
@@ -928,21 +929,21 @@ function Simulation() {
                     sx={{
                       display: "flex",
                       flexDirection: "column",
-                      alignItems: "center",
+                      marginRight: "auto",
                     }}
                   >
-                    <Tooltip
+                    {/* <Tooltip
                       title={t(
                         "simulation.tooltipInventoryOverviewEndOfPeriod"
                       )}
                     >
                       <InfoOutlined />
-                    </Tooltip>
+                    </Tooltip> */}
                     <Typography
                       variant="h5"
                       sx={{
                         fontWeight: "bold",
-                        color: "#333333",
+                        color: "#333333", py: 2
                       }}
                     >
                       {t("simulation.distributionPlanning")}
@@ -1023,11 +1024,12 @@ function Simulation() {
                     </Table>
                   </TableContainer>
                 </Box>
+
                 <Box
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    // alignItems: "center",
                     padding: "14px",
                     borderRadius: "8px",
                     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
@@ -1035,20 +1037,20 @@ function Simulation() {
                   }}
                 >
                   {/* Produktionsplanung */}
-                  <Box>
+                  <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
+                    <Typography
+                      variant="h5"
+                      sx={{
+                        fontWeight: "bold",
+                        color: "#333333", py: 2
+                      }}
+                    >
+                      {t("simulation.productionPlanning")}
+                    </Typography>
                     <Tooltip title={t("simulation.tooltipProductionPlanning")}>
                       <InfoOutlined />
                     </Tooltip>
-                  </Box>
-                  <Typography
-                    variant="h5"
-                    sx={{
-                      fontWeight: "bold",
-                      color: "#333333",
-                    }}
-                  >
-                    {t("simulation.productionPlanning")}
-                  </Typography>
+                  </Stack>
                   {/* <Button
                     variant="contained"
                     onClick={(oEvent) => fSendProductionPlan(oEvent)}
@@ -1131,9 +1133,10 @@ function Simulation() {
                     </Table>
                   </TableContainer>
                 </Box>
+
                 <Box sx={{ marginBottom: "20px", backgroundColor: "#f0f0f0", py: 2, borderRadius: "8px", mb: 4 }}>
                   {/* Inventarüberblick */}
-                  <Box>
+                  {/* <Box>
                     <Tooltip
                       title={t(
                         "simulation.tooltipInventoryOverviewEndOfPeriod"
@@ -1141,12 +1144,13 @@ function Simulation() {
                     >
                       <InfoOutlined />
                     </Tooltip>
-                  </Box>
+                  </Box> */}
                   <Typography
                     variant="h5"
                     sx={{
                       fontWeight: "bold",
-                      color: "#333333",
+                      color: "#333333", p
+                      : 2
                     }}
                   >
                     {t("simulation.inventoryOverview")}
@@ -1206,37 +1210,32 @@ function Simulation() {
                     </Table>
                   </TableContainer>
                 </Box>
+
                 <Box
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    alignItems: "center",
+                    // alignItems: "center",
                     padding: "14px",
                     borderRadius: "8px",
                     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "#ffffff"
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                    }}
-                  >
-                    <Tooltip title={t("simulation.tooltipPartList")}>
-                      <InfoOutlined />
-                    </Tooltip>
+                  <Stack direction="row" spacing={1} sx={{ alignItems: "center" }}>
                     <Typography
                       variant="h5"
                       sx={{
                         fontWeight: "bold",
-                        color: "#333333",
+                        color: "#333333", py: 2
                       }}
                     >
                       {t("simulation.partListCalculation")}
                     </Typography>
-                  </Box>
+                    <Tooltip title={t("simulation.tooltipPartList")}>
+                      <InfoOutlined />
+                    </Tooltip>
+                  </Stack>
 
                   <TableContainer>
                     <Table>
