@@ -40,7 +40,8 @@ function DeliveryProgram(props) {
 
   return (
     <Box>
-      <Tooltip arrow title={t("simulation.tooltipDeliveryProgram")}>
+      <Tooltip arrow title={t("simulation.tooltipDeliveryProgram")} 
+                sx={{ m: "16px 0 -12px 16px" }}>
         <InfoOutlined />
       </Tooltip>
       {props.data.map((oElement, index) => {
@@ -56,7 +57,7 @@ function DeliveryProgram(props) {
           <Box
             key={oElement.article}
             ref={(el) => (deliveryProgramRefs.current[index] = el)}
-            marginBottom="2rem"
+            margin="1rem"
             border={1}
             borderRadius="5px"
             display="flex"

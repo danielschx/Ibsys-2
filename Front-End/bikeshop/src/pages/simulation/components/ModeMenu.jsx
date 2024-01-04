@@ -11,7 +11,7 @@ function ModeMenu(data) {
     {
       value: 5,
       text: t("simulation.shippingMethods.normal"),
-      color: "skyblue",
+      color: "#e8e8e8",
     },
     {
       value: 4,

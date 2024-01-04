@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  FormControl,
   InputLabel,
-  FormHelperText,
   Tooltip,
   Select,
   MenuItem,
@@ -122,7 +120,8 @@ function ProductionProgram(props) {
   return (
     <>
       <Box alignContent="center">
-        <Tooltip arrow title={t("simulation.tooltipProductionProgram")}>
+        <Tooltip arrow title={t("simulation.tooltipProductionProgram")} 
+                sx={{ m: "16px 0 -12px 16px" }}>
           <InfoOutlined />
         </Tooltip>
         {items.length > 0 ? (
@@ -131,8 +130,8 @@ function ProductionProgram(props) {
               key={oElement.sequenceNumer}
               elevation={3}
               sx={{
-                margin: "1rem",
-                padding: "2rem",
+                my: 2,
+                p: 2,
                 display: "flex",
                 flexDirection: "column",
               }}
@@ -292,7 +291,7 @@ function ProductionProgram(props) {
           <Typography>{t("simulation.noItems")}</Typography>
         )}
       </Box>
-      <Box sx={{ display: "right", marginTop: "3rem" }}>
+      <Box  sx={{ mt: 5 }}>
         <Button
           variant="contained"
           onClick={handleToggleAllInformation}
@@ -301,7 +300,7 @@ function ProductionProgram(props) {
             color: "black",
             "&:hover": {
               backgroundColor: "lightskyblue",
-            },
+            }, mt:6.5
           }}
         >
           {allInformationOpen

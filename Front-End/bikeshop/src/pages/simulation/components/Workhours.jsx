@@ -2,7 +2,6 @@ import {
   FormControl,
   Input,
   InputLabel,
-  FormHelperText,
   Tooltip,
   Box,
   Typography,
@@ -46,11 +45,12 @@ function Workinghours({ data, calculations, validate }) {
   };
 
   return (
-    <Box>
-      <Tooltip arrow title={t("simulation.tooltipWorkhours")}>
+    <Box sx={{ px: 3 }}>
+      <Tooltip arrow title={t("simulation.tooltipWorkhours")} 
+              sx={{ m: "16px 0 -12px 16px" }}>
         <InfoOutlined />
       </Tooltip>
-      <Box sx={{ fontSize: "14px", textAlign: "start" }}>
+      <Box sx={{ fontSize: "14px", textAlign: "start", mt:2 }}>
         <Typography>{t("simulation.workhoursInfo.info1")}</Typography>
         <br />
         <Typography>{t("simulation.workhoursInfo.info2")}</Typography>
@@ -69,8 +69,8 @@ function Workinghours({ data, calculations, validate }) {
             <Box
               key={oElement.station}
               sx={{
-                margin: "2rem",
-                padding: "1rem",
+                my: 2,
+                p: 2,
                 boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
                 borderRadius: "8px",
                 backgroundColor: "#ffffff",

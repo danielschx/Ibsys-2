@@ -932,13 +932,6 @@ function Simulation() {
                       marginRight: "auto",
                     }}
                   >
-                    {/* <Tooltip
-                      title={t(
-                        "simulation.tooltipInventoryOverviewEndOfPeriod"
-                      )}
-                    >
-                      <InfoOutlined />
-                    </Tooltip> */}
                     <Typography
                       variant="h5"
                       sx={{
@@ -1136,15 +1129,6 @@ function Simulation() {
 
                 <Box sx={{ marginBottom: "20px", backgroundColor: "#f0f0f0", py: 2, borderRadius: "8px", mb: 4 }}>
                   {/* Inventarüberblick */}
-                  {/* <Box>
-                    <Tooltip
-                      title={t(
-                        "simulation.tooltipInventoryOverviewEndOfPeriod"
-                      )}
-                    >
-                      <InfoOutlined />
-                    </Tooltip>
-                  </Box> */}
                   <Typography
                     variant="h5"
                     sx={{
@@ -1387,21 +1371,133 @@ function Simulation() {
               </Stepper>
               {activeStep != aSteps.length ? (
                 <Fragment>
-                  <Typography>{aSteps[activeStep]}</Typography>
-                  <Box sx={{ display: "flex", flexDirection: "row", pt: 5 }}>
+                  <Typography sx={{ fontSize: "28px" }}>{aSteps[activeStep]}</Typography>
+                  <Stack direction="row" spacing={2}>
                     <div>
-                      <Button
+                      <StyledUploadButton
+                        color="inherit"
+                        hidden={activeStep === 0 || !bGlobalValid}
+                        onClick={fHandleBack}
+                        sx={{
+                          width: "100px",
+                          visibility: activeStep !== 0 ? "visible" : "hidden", mt: 6
+                        }}
+                      >
+                        {t("simulation.back")}
+                      </StyledUploadButton>
+                      <StyledUploadButton
+                        color="inherit"
+                        sx={{
+                          width: "100px",
+                          visibility: activeStep === 0 ? "visible" : "hidden", mt: -7.5
+                        }}
+                        onClick={fHandleBackInitial}
+                      >
+                        {t("simulation.back")}
+                      </StyledUploadButton>
+                    </div>
+
+                    {activeStep === 0 && (
+                      <ProductionProgram
+                        data={state.productionlist}
+                        validate={fGlobalValidHandler}
+                      />
+                    )}
+                    {activeStep === 1 && (
+                      <Workinghours
+                        data={state.workingtimelist}
+                        calculations={state.calculations}
+                        validate={fGlobalValidHandler}
+                      />
+                    )}
+                    {activeStep === 2 && (
+                      <DeliveryProgram
+                        data={state.orderlist}
+                        validate={fGlobalValidHandler}
+                      />
+                    )}
+                    {activeStep === 3 && <Overview data={state} />}
+                    <Box sx={{ flex: "1 1 auto" }} />
+                    <div>
+                      {fIsStepOptional(activeStep) && (
+                        <Button
+                          color="inherit"
+                          onClick={fHandleSkip}
+                          sx={{ mr: 1 }}
+                          disabled={!bGlobalValid}
+                        >
+                          {t("simulation.skip")}
+                        </Button>
+                      )}
+                    </div>
+                    <div>
+                      <StyledUploadButton
+                        onClick={fHandleNext}
+                        style={{
+                          visibility:
+                            activeStep !== aSteps.length - 1 &&
+                            activeStep !== aSteps.length - 4 &&
+                            activeStep !== aSteps.length - 3
+                              ? "visible"
+                              : "hidden", marginTop: "48px"
+                        }}
+                        disabled={!bGlobalValid}
+                      >
+                        {t("simulation.next")}
+                      </StyledUploadButton>
+
+                      <StyledUploadButton
+                        onClick={fHandleCalcWorktimes}
+                        style={{
+                          visibility:
+                            activeStep === aSteps.length - 4
+                              ? "visible"
+                              : "hidden", marginTop: "-54px"
+                        }}
+                      >
+                        {t("simulation.calcWorktimes")}
+                      </StyledUploadButton>
+
+                      <StyledUploadButton
+                        onClick={fHandleCalcOrders}
+                        style={{
+                          visibility:
+                            activeStep === aSteps.length - 3
+                              ? "visible"
+                              : "hidden", marginTop: "-100px"
+                        }}
+                      >
+                        {t("simulation.calcOrders")}
+                      </StyledUploadButton>
+
+                      <StyledUploadButton
+                        onClick={fHandleFinish}
+                        style={{
+                          visibility:
+                            activeStep === aSteps.length - 1
+                              ? "visible"
+                              : "hidden", marginTop: "-150px"
+                        }}
+                        disabled={!bGlobalValid}
+                      >
+                        {t("simulation.finish")}
+                      </StyledUploadButton>
+                    </div>
+                  </Stack>
+                  {/* <Box sx={{ display: "flex", flexDirection: "row", pt: 5 }}>
+                    <div>
+                      <StyledUploadButton
                         color="inherit"
                         disabled={activeStep === 0 || !bGlobalValid}
                         onClick={fHandleBack}
                         sx={{
-                          mr: 1,
+                          mr: 2,
                           visibility: activeStep !== 0 ? "visible" : "hidden",
                         }}
                       >
                         {t("simulation.back")}
-                      </Button>
-                      <Button
+                      </StyledUploadButton>
+                      <StyledUploadButton
                         color="inherit"
                         sx={{
                           mr: 1,
@@ -1410,7 +1506,7 @@ function Simulation() {
                         onClick={fHandleBackInitial}
                       >
                         {t("simulation.back")}
-                      </Button>
+                      </StyledUploadButton>
                     </div>
 
                     {activeStep === 0 && (
@@ -1462,7 +1558,7 @@ function Simulation() {
                         {t("simulation.next")}
                       </Button>
 
-                      <Button
+                      <StyledUploadButton
                         onClick={fHandleCalcWorktimes}
                         style={{
                           visibility:
@@ -1472,9 +1568,9 @@ function Simulation() {
                         }}
                       >
                         {t("simulation.calcWorktimes")}
-                      </Button>
+                      </StyledUploadButton>
 
-                      <Button
+                      <StyledUploadButton
                         onClick={fHandleCalcOrders}
                         style={{
                           visibility:
@@ -1484,7 +1580,7 @@ function Simulation() {
                         }}
                       >
                         {t("simulation.calcOrders")}
-                      </Button>
+                      </StyledUploadButton>
                       <Button
                         onClick={fHandleFinish}
                         style={{
@@ -1498,7 +1594,7 @@ function Simulation() {
                         {t("simulation.finish")}
                       </Button>
                     </div>
-                  </Box>
+                  </Box> */}
                 </Fragment>
               ) : (
                 <Fragment></Fragment>
