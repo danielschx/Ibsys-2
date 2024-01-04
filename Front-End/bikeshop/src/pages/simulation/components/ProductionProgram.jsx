@@ -16,6 +16,17 @@ import { useGlobalState } from "../../../components/GlobalStateProvider";
 import { InfoOutlined } from "@mui/icons-material";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import styled from "@emotion/styled";
+
+const StyledSplitButton = styled(Button)({
+  backgroundColor: "#e8e8e8",
+  color: "black",
+  "&:hover": {
+    backgroundColor: "#c9c9c9", // Farbe für Hover-Zustand
+    borderColor: "#bdbdbd"
+  },
+  borderColor: "#c9c9c9",
+});
 
 function ProductionProgram(props) {
   const fSetGlobalValid = props.validate;
@@ -183,14 +194,14 @@ function ProductionProgram(props) {
                     )}
                   </Select>
                 </Box>
-                {/* <Box sx={{ marginLeft: "1rem" }}>
-                  <Button
+                <Box sx={{ mt: 2.5, ml: 1 }}>
+                  <StyledSplitButton
                     variant="outlined"
                     onClick={(oEvent) => handleClick(oEvent, oElement)}
                   >
                     {t("simulation.splitItem")}
-                  </Button>
-                </Box> */}
+                  </StyledSplitButton>
+                </Box>
               </Box>
               {(expandedItemIndex === index || allInformationOpen) && (
                 <Box
@@ -229,9 +240,9 @@ function ProductionProgram(props) {
                     padding: "1rem",
                   }}
                 >
-                  {/* <Typography variant="h6" sx={{ marginBottom: "1rem" }}>
+                  <Typography variant="h6" sx={{ marginBottom: "1rem" }}>
                     {t("simulation.splitItem")}
-                  </Typography> */}
+                  </Typography>
                   <Input
                     id="input"
                     type="number"
@@ -260,7 +271,7 @@ function ProductionProgram(props) {
                       width: "100%",
                     }}
                   >
-                    <Button
+                    <StyledSplitButton
                       variant="outlined"
                       onClick={(oEvent) => handleSplitItem(oElement, oEvent)}
                       sx={{
@@ -270,8 +281,8 @@ function ProductionProgram(props) {
                       }}
                     >
                       {t("simulation.confirm")}
-                    </Button>
-                    <Button
+                    </StyledSplitButton>
+                    <StyledSplitButton
                       variant="outlined"
                       onClick={handleClose}
                       sx={{
@@ -281,7 +292,7 @@ function ProductionProgram(props) {
                       }}
                     >
                       {t("simulation.cancel")}
-                    </Button>
+                    </StyledSplitButton>
                   </Box>
                 </Box>
               </Popover>
