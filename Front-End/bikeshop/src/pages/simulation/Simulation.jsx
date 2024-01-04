@@ -1361,7 +1361,7 @@ function Simulation() {
             </Container>
           )}
           {bProductionPlanned && (
-            <Box sx={{ bgcolor: "rgb(250, 250, 250)", height: "900px", p: 5 }}>
+            <Box sx={{ bgcolor: "rgb(250, 250, 250)", height: "100%", p: 5 }}>
               <Stepper activeStep={activeStep} className="custom-stepper">
                 {aSteps.map((sStep, index) => (
                   <Step key={index} className="custom-step">
