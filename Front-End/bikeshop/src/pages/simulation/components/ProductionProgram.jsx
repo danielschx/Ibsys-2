@@ -130,18 +130,14 @@ function ProductionProgram(props) {
 
   return (
     <>
-      <Box alignContent="center">
-        <Tooltip arrow title={t("simulation.tooltipProductionProgram")} 
-                sx={{ m: "16px 0 -12px 16px" }}>
-          <InfoOutlined />
-        </Tooltip>
+      <Box>
         {items.length > 0 ? (
           items.map((oElement, index) => (
             <Paper
               key={oElement.sequenceNumer}
               elevation={3}
               sx={{
-                my: 2,
+                mt: index === 0 ? 6.5 : 3,
                 p: 2,
                 display: "flex",
                 flexDirection: "column",
@@ -300,24 +296,30 @@ function ProductionProgram(props) {
           ))
         ) : (
           <Typography>{t("simulation.noItems")}</Typography>
-        )}
-      </Box>
-      <Box  sx={{ mt: 5 }}>
+        )}</Box>
+      <Box>
         <Button
           variant="contained"
           onClick={handleToggleAllInformation}
           sx={{
             backgroundColor: "white",
             color: "black",
+            whiteSpace: "nowrap",
             "&:hover": {
-              backgroundColor: "lightskyblue",
-            }, mt:6.5
+              backgroundColor: "lightgrey",
+            },
+            mt:6.5,
+            width: "230px"
           }}
         >
           {allInformationOpen
             ? t("simulation.infosausblenden")
             : t("simulation.infosanzeigen")}
         </Button>
+        <Tooltip arrow title={t("simulation.tooltipProductionProgram")} 
+                sx={{ m: "16px 8px" }}>
+          <InfoOutlined />
+        </Tooltip>
       </Box>
     </>
   );

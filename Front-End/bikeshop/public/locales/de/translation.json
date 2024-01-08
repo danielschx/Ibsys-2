@@ -48,7 +48,7 @@
     "skip": "Überspringen",
     "next": "Weiter",
     "finish": "XML-Datei generieren",
-    "shifts": "Kapazitätsplanung",
+    "shifts": "Kapazität und Auslastung",
     "shift": "Schicht",
     "component": "Bauteil",
     "Kinderfahrrad": "Kinderfahrrad",
@@ -121,7 +121,7 @@
       "cheapVendor": "Günstiger Anbieter",
       "specialDelivery": "Sonderlieferung"
     },
-    "workstation": "Arbeitsstation",
+    "workstation": "Arbeitsplatz",
     "overtime": "Überminuten pro Tag",
     "workstationValues": "Mehrschichten und Überstunden",
     "part": "Bauteil",
@@ -133,8 +133,8 @@
     "workingTimeListOverview": "Übersicht: Arbeitszeiten",
     "inputInvalid": "Zahl eingeben. Die Felder dürfen nicht leer sein.",
     "selectSplit": "Auwählen, ob Produktionsaufträge gesplitted werden sollen.",
-    "infosanzeigen": "Informationen anzeigen",
-    "infosausblenden": "Informationen ausblenden",
+    "infosanzeigen": "Mehr Informationen",
+    "infosausblenden": "Weniger Informationen",
     "tooltipProductionPlanning": "Produktion für die nächste Periode planen.Die vorgegebenen Werte entstehen abhängig der gegebenen Prognosen. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
     "tooltipProductionProgram": "Berechnetes Produktionsprogramm. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
     "tooltipDeliveryProgram": "Berechnetes Bestellprogramm. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
@@ -166,9 +166,9 @@
     "workhoursInfo": {
       "info1": "Berechnung der Schichten und Überminuten:",
       "info2": "Normale Arbeitswoche (tägliche 8-Stunden-Schicht) = 40 Std = 2.400 Min. pro Woche.",
-      "info3": "Überminuten = 2.401 - 3.200 Min., Überminuten werden durch die 5 Arbeitstage in der Woche geteilt.",
-      "info4": "Zweite Schicht = Ab 3.201 Min., Dritte Schicht = Ab 5.600 Min. (4.800 + 800)",
-      "info5": "Beispiel: 3.000 Min. Bedarf = 1 Schicht und 600/5=120 Überminuten pro Tag."
+      "info3": "Überminuten = 2.401 - 3.200 Min. (Überminuten werden durch die 5 Arbeitstage in der Woche geteilt)",
+      "info4": "Zweite Schicht = Ab 3.201 Min.",
+      "info5": "Dritte Schicht = Ab 5.600 Min. (4.800 + 800)"
     },
     "partProduction": "Produktionsaufträge",
     "amountPart": "Stück"

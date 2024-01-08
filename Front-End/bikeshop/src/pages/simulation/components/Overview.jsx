@@ -1,18 +1,20 @@
 import {
-  Paper,
   Table,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
   TableRow,
   Tooltip,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography 
 } from "@mui/material";
 import { Box } from "@mui/system";
 import { useGlobalState } from "../../../components/GlobalStateProvider";
 import { useTranslation } from "react-i18next";
-
 import { InfoOutlined } from "@mui/icons-material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function Overview(props) {
   const { oState, fSetState } = useGlobalState();
@@ -27,22 +29,17 @@ function Overview(props) {
   ]);
 
   return (
-    <>
-      <Box alignContent="center">
-        <Box>
-          <Tooltip arrow title={t("simulation.tooltipOverview")} 
-              sx={{ m: "16px 0 -24px 32px" }}>
-            <InfoOutlined />
-          </Tooltip>
-        </Box>
-        <Box sx={{ m: 3 }}>
-          <TableContainer component={Paper}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>{t("simulation.orderListOverview")}</TableCell>
-                </TableRow>
-              </TableHead>
+    <Box>
+      <Accordion sx={{ mt: 6 }}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>{t("simulation.orderListOverview")}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          {<Table>
               <TableHead>
                 <TableRow>
                   <TableCell>{t("simulation.part")}</TableCell>
@@ -59,67 +56,68 @@ function Overview(props) {
                   </TableRow>
                 ))}
               </TableBody>
-            </Table>
-          </TableContainer>
-        </Box>
-        <Box margin="2rem">
-          <TableContainer component={Paper}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>
-                    {t("simulation.productionListOverview")}
-                  </TableCell>
+            </Table>}
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>{t("simulation.productionListOverview")}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          {<Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>{t("simulation.part")}</TableCell>
+                <TableCell>{t("simulation.amount")}</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {props.data.productionlist.map((oOrder) => (
+                <TableRow key={oOrder.article}>
+                  <TableCell>{oOrder.article}</TableCell>
+                  <TableCell>{oOrder.quantity}</TableCell>
                 </TableRow>
-              </TableHead>
-              <TableHead>
-                <TableRow>
-                  <TableCell>{t("simulation.part")}</TableCell>
-                  <TableCell>{t("simulation.amount")}</TableCell>
+              ))}
+            </TableBody>
+          </Table>}
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2a-content"
+          id="panel2a-header"
+        >
+          <Typography>{t("simulation.workingTimeListOverview")}</Typography>
+        </AccordionSummary>
+        <AccordionDetails>
+          {<Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>{t("simulation.workstation")}</TableCell>
+                <TableCell style={{ whiteSpace: "nowrap" }}>{t("simulation.shifts")}</TableCell>
+                <TableCell style={{ whiteSpace: "nowrap" }}>{t("simulation.overtime")}</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {props.data.workingtimelist.map((oOrder) => (
+                <TableRow key={oOrder.station}>
+                  <TableCell>{oOrder.station}</TableCell>
+                  <TableCell>{oOrder.shift}</TableCell>
+                  <TableCell>{oOrder.overtime}</TableCell>
                 </TableRow>
-              </TableHead>
-              <TableBody>
-                {props.data.productionlist.map((oOrder) => (
-                  <TableRow key={oOrder.article}>
-                    <TableCell>{oOrder.article}</TableCell>
-                    <TableCell>{oOrder.quantity}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Box>
-        <Box margin="2rem">
-          <TableContainer component={Paper}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>
-                    {t("simulation.workingTimeListOverview")}
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableHead>
-                <TableRow>
-                  <TableCell>{t("simulation.workstation")}</TableCell>
-                  <TableCell>{t("simulation.shifts")}</TableCell>
-                  <TableCell>{t("simulation.overtime")}</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {props.data.workingtimelist.map((oOrder) => (
-                  <TableRow key={oOrder.station}>
-                    <TableCell>{oOrder.station}</TableCell>
-                    <TableCell>{oOrder.shift}</TableCell>
-                    <TableCell>{oOrder.overtime}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Box>
-      </Box>
-    </>
+              ))}
+            </TableBody>
+          </Table>}
+        </AccordionDetails>
+      </Accordion>
+    </Box>
   );
 }
 export default Overview;
