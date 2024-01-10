@@ -323,7 +323,7 @@ function FileUpload() {
 
   return (
     <>
-      <Title>{t("fileupload.chooseResult")}</Title>
+      <Title sx={{ mt: 30 }}>{t("fileupload.chooseResult")}</Title>
       <Input
         type="file"
         accept=".xml"

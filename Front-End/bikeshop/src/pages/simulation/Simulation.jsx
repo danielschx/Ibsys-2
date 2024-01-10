@@ -1477,7 +1477,7 @@ function Simulation() {
                           visibility:
                             activeStep === aSteps.length - 1
                               ? "visible"
-                              : "hidden", marginTop: "-70px", padding: "6px 40px"
+                              : "hidden", marginTop: "-110px", padding: "6px 40px"
                         }}
                         disabled={!bGlobalValid}
                       >
@@ -1606,7 +1606,7 @@ function Simulation() {
       )}
       {!bForecastLoaded && (
         <>
-          <Typography fontWeight="bold" fontSize="40px">
+          <Typography fontWeight="bold" fontSize="40px" marginTop={20}>
             {t("simulation.waitingForData")}
           </Typography>
         </>
