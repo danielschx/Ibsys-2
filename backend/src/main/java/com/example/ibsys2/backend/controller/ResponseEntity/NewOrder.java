@@ -97,9 +97,10 @@ public class NewOrder {
                 int orderDay = i - maxDeliveryTime;
 
                 if (orderDay < 6) {
-                    System.out.println("Produkt geht an Tag " + i + " aus. Bestellung erfolgt an Tag: " + orderDay);
-                    orderInfos.add("Produkt geht an Tag " + i + " aus. Bestellung erfolgt an Tag: " + orderDay);
+                    System.out.println("Produkt geht an Tag " + i + " aus. Bestellung erfolgt an Tag: " + orderDay + "\n");
+                    orderInfos.add("Produkt geht an Tag " + i + " aus. Bestellung erfolgt an Tag: " + orderDay + "\n");
                 }
+                
 
                 // Lagerbestand erhöhen für alle Tage ab dem Tag an dem die Bestellung
                 // spätestens ankommt
@@ -119,15 +120,6 @@ public class NewOrder {
                     orders.add(new NewOrder(product.getId(), product.getName(), orderQuantity, 5, orderInfos));
                 }
 
-                // wenn Order Day ist in nächster Periode (5-10) mache eine günstige Bestellung
-                /*
-                 * else if (orderDay >= 5 && orderDay < 10) {
-                 * orders.add(new NewOrder(product.getId(), orderQuantity, 4));
-                 * System.out.println("Neue Günstige Bestellung: Produkt: " + product.getId() +
-                 * " Menge: " + orderQuantity
-                 * + " Modus: 4");
-                 * }
-                 */
                 // wenn Order Day ist in Vergangenheit, mache eine Schnelle Bestellung
                 else if (orderDay < 0) {
                     System.out.println("Neue Schnelle Bestellung: Produkt: " + product.getId() + " Menge: " + orderQuantity
