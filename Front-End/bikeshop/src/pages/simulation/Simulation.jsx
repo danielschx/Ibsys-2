@@ -1606,7 +1606,7 @@ function Simulation() {
       )}
       {!bForecastLoaded && (
         <>
-          <Typography fontWeight="bold" fontSize="40px">
+          <Typography fontWeight="bold" fontSize="40px" marginTop={20}>
             {t("simulation.waitingForData")}
           </Typography>
         </>
