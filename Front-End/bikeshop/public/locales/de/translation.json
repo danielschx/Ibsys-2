@@ -136,7 +136,7 @@
     "infosanzeigen": "Mehr Informationen",
     "infosausblenden": "Weniger Informationen",
     "tooltipProductionPlanning": "Produktion für die nächste Periode planen.Die vorgegebenen Werte entstehen abhängig der gegebenen Prognosen. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
-    "tooltipProductionProgram": "Berechnetes Produktionsprogramm. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
+    "tooltipProductionProgram": "Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. | Rechnung: Stückzahl = Produktionsmengen + Warteschlange Px + Sicherheitsbestand - Lagerbestand - Warteschlange",
     "tooltipDeliveryProgram": "Berechnetes Bestellprogramm. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
     "tooltipWorkhours": "Berechnete Mehrschichten und Überstunden. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
     "tooltipOverview": "Gesamte Planung der kommenden Periode. Auf 'Beenden' klicken, um eine Datei mit der Planung zu generieren.",
