@@ -164,7 +164,7 @@
     "ordersInWorkQuantity": "Quantity in Progress",
     "waitingListQuantity": "Quantity on Waiting List",
     "workhoursInfo": {
-      "info1": "Calculation of shifts and overtime:",
+      "info1": " ",
       "info2": "A normal work week (8-hour shift per day) consists of 40 hours or 2400 minutes per week.",
       "info3": "If there is a surplus of up to 800 minutes (a total of up to 3200 minutes), overtime is ordered. This is divided by the 5 working days of the week.",
       "info4": "If there is a demand of more than 3200 minutes, a second shift is ordered, and for demand exceeding 4800+800=5600 minutes, a third shift is ordered.",

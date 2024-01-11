@@ -164,7 +164,7 @@
     "ordersInWorkQuantity": "Aufträge in Bearbeitung",
     "waitingListQuantity": "Aufträge in Warteschlange",
     "workhoursInfo": {
-      "info1": "Berechnung der Schichten und Überminuten:",
+      "info1": " ",
       "info2": "Normale Arbeitswoche (tägliche 8-Stunden-Schicht) = 40 Std = 2.400 Min. pro Woche.",
       "info3": "Überminuten = 2.401 - 3.200 Min. (Überminuten werden durch die 5 Arbeitstage in der Woche geteilt)",
       "info4": "Zweite Schicht = Ab 3.201 Min.",
