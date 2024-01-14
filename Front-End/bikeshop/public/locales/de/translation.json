@@ -138,7 +138,7 @@
     "tooltipProductionPlanning": "Produktion für die nächste Periode planen.Die vorgegebenen Werte entstehen abhängig der gegebenen Prognosen. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
     "tooltipProductionProgram": "Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. | Rechnung: Stückzahl = Produktionsmengen + Warteschlange Px + Sicherheitsbestand - Lagerbestand - Warteschlange",
     "tooltipDeliveryProgram": "Berechnetes Bestellprogramm. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
-    "tooltipWorkhours": "Berechnete Mehrschichten und Überstunden. Wichtig: Nur Zahlen eingeben, die durch 10 teilbar sind. Die Felder dürfen nicht leer sein.",
+    "tooltipWorkhours": "1. Schicht = 0-2400 Minuten/Periode. Überstunden bei 1. und 2. Schicht bis zu 33% möglich. 2. Schicht = 3200-4800 Minuten. 3. Schicht = 5600-7200 Minuten/Periode.",
     "tooltipOverview": "Gesamte Planung der kommenden Periode. Auf 'Beenden' klicken, um eine Datei mit der Planung zu generieren.",
     "tooltipDirectSelling": "Direktverkäufe planen. Wichtig: Nur ganze Zahlen als Werte eingeben. Angegebene Mengen beim Direktverkauf werden nicht automatisch zu Distributions- oder Produktionsprogramm hinzugerechnet.",
     "productionPlanningAmount": "Produktionsmenge",
