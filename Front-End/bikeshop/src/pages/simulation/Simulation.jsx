@@ -83,6 +83,10 @@ function Simulation() {
     fSetGlobalValid(bValid);
   };
 
+  const shouldHighlightRed = (time) => {
+    return time > 7200;
+  };  
+
   useEffect(() => {
     if (oPlanning["inventory"]) {
       setItems([...oPlanning["inventory"]]);
@@ -700,11 +704,13 @@ function Simulation() {
           </tr>
           <tr>
             <td>Gesamtzeit:</td>
-            <td>{overallDuration} Min</td>
+            <td style={{ color: shouldHighlightRed(overallDuration) ? 'red' : 'inherit' }}>
+              {overallDuration} Min
+            </td>
           </tr>
         </tbody>
       </table>
-    );
+    );    
   };
 
   const calculateSetupTimes = (setupTimes) => {
